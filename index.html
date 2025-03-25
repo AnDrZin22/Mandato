@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandado de Prisão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #E60012;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #B00008;
+        }
+
+        .mandado-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fafafa;
+        }
+
+        .mandado-container h2 {
+            text-align: center;
+        }
+
+        .mandado-texto {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gerar Mandado de Prisão</h1>
+        <label for="nome">Nome do acusado:</label>
+        <input type="text" id="nome" placeholder="Nome completo do acusado" required>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" placeholder="Idade do acusado" required>
+
+        <label for="crime">Crime cometido:</label>
+        <textarea id="crime" placeholder="Descreva o crime cometido" rows="4" required></textarea>
+
+        <label for="data">Data do mandado:</label>
+        <input type="date" id="data" required>
+
+        <button onclick="gerarMandado()">Gerar Mandado</button>
+
+        <div id="mandado" class="mandado-container" style="display:none;">
+            <h2>Mandado de Prisão</h2>
+            <div id="mandadoTexto" class="mandado-texto"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
