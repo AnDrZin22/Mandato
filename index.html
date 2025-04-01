@@ -8,6 +8,9 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            background-image: url('https://www.example.com/imagem-de-fundo.jpg'); /* Coloque a URL da imagem de fundo */
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +19,7 @@
         }
 
         .container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo transparente para destacar o conteúdo */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -74,11 +77,20 @@
             line-height: 1.5;
             margin-bottom: 10px;
         }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px; /* Ajuste o tamanho da logo */
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Logo da Polícia -->
+        <img src="EscudoPMESP.png" alt="Logo Polícia" class="logo"> <!-- Coloque a URL da logo da polícia -->
+
         <h1>Gerar Mandado de Prisão</h1>
         <label for="nome">Nome do acusado:</label>
         <input type="text" id="nome" placeholder="Nome completo do acusado" required>
@@ -99,4 +111,31 @@
             <div id="mandadoTexto" class="mandado-texto"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function gerarMandado() {
+            const nome = document.getElementById("nome").value;
+            const idade = document.getElementById("idade").value;
+            const crime = document.getElementById("crime").value;
+            const data = document.getElementById("data").value;
+
+            if (!nome || !idade || !crime || !data) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            const mandadoTexto = `
+                <p><strong>Nome do Acusado:</strong> ${nome}</p>
+                <p><strong>Idade:</strong> ${idade} anos</p>
+                <p><strong>Crime Cometido:</strong> ${crime}</p>
+                <p><strong>Data do Mandado:</strong> ${data}</p>
+                <p><strong>Em nome da lei, a prisão é ordenada. O acusado deverá ser transportado para a prisão.</strong></p>
+                <p><strong>Assinado por: Mr.André</strong></p>
+            `;
+
+            document.getElementById("mandadoTexto").innerHTML = mandadoTexto;
+            document.getElementById("mandado").style.display = "block";
+        }
+    </script>
+</body>
+</html>
